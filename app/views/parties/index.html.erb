@@ -1,0 +1,28 @@
+<h1>Party List</h1>
+
+<%= link_to "New",new_party_url %>
+
+<table id="grid-parties" class="table">
+    <thead>
+        <tr>
+            <th data-column-id="host_name" data-order="asc">Hosted By</th>
+            <th data-column-id="host_email" data-identifier="true">Host Email</th>
+            <th data-column-id="numgsts"># Guests</th>
+            <th data-column-id="guest_names">Guest Names</th>
+            <th data-column-id="venue">Venue</th>
+            <th data-column-id="theme">Theme</th>
+            <th data-column-id="when" data-formatter="datetime">Starts At</th>
+            <th data-column-id="when_its_over" data-formatter="datetime">Ends At</th>
+            <th data-column-id="descript">Description</th>
+        </tr>
+    </thead>
+</table>
+
+<script type="javascript">
+    // initialize the jQuery Bootgrid to support AJAX paging, sorting etc
+    $("#grid-parties").bootgrid({
+    ajax: true,
+    url: "/parties.json",
+    formatters: {}
+});
+</script>
